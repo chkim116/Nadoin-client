@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { AiOutlineSearch } from "react-icons/ai";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 const Headers = styled.header`
   background-color: white;
@@ -136,22 +136,51 @@ const DropMenu = styled.ul`
 const MediaNav = styled.nav`
   display: none;
   @media all and (max-width: 780px) {
+    top: 0;
+    right: 5%;
     display: block;
-    font-size: 3px;
+    cursor: pointer;
+    ul {
+      position: fixed;
+      display: ${(props) => (props.mediaShow ? "block" : "none")};
+      top: 45px;
+      width: 100%;
+      height: 350px;
+      text-align: center;
+      right: 0;
+      flex-direction: column;
+      background: white;
+      animation: mediabar 500ms forwards;
+      padding: 1em 0;
+      li {
+        padding: 1em;
+        &:hover {
+          background: #0984e3;
+        }
+      }
+    }
+
+    @keyframes mediabar {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
   }
 `;
 
 export default function Header() {
   const [show, setShow] = useState(false);
-  const router = useRouter();
-  const { pathname } = router;
-  console.log(pathname);
+  const [mediaShow, setMediaShow] = useState(false);
+
   const onClick = () => {
-    if (show) {
-      setShow(false);
-    } else {
-      setShow(true);
-    }
+    show ? setShow(false) : setShow(true);
+  };
+
+  const onMedia = () => {
+    mediaShow ? setMediaShow(false) : setMediaShow(true);
   };
 
   return (
@@ -169,7 +198,11 @@ export default function Header() {
                 <li>홈</li>
               </a>
             </Link>
-            <li>탐색</li>
+            <Link href="/jobsearch">
+              <a>
+                <li>탐색</li>
+              </a>
+            </Link>
             <Link href="/matchup">
               <a>
                 <li>매치업</li>
@@ -179,9 +212,21 @@ export default function Header() {
             <DropMenu>
               <li>더보기</li>
               <ul>
-                <li>고객센터</li>
-                <li>이벤트</li>
-                <li>자주 묻는 질문</li>
+                <Link href="/service">
+                  <a>
+                    <li>고객센터</li>
+                  </a>
+                </Link>
+                <Link href="/suggestions">
+                  <a>
+                    <li>건의사항</li>
+                  </a>
+                </Link>
+                <Link href="/questions">
+                  <a>
+                    <li>자주 묻는 질문</li>
+                  </a>
+                </Link>
               </ul>
             </DropMenu>
           </ul>
@@ -191,46 +236,62 @@ export default function Header() {
             <li>
               <AiOutlineSearch size={20} onClick={onClick} />
             </li>
-            <Link href="/">
-              <a>
-                <li>로그인</li>
-              </a>
-            </Link>
-            <Link href="/">
+            <li>로그인</li>
+            <Link href="/register">
               <a>
                 <li>회원가입</li>
               </a>
             </Link>
-            <Link href="/">
+            <Link href="/enterprise">
               <a>
                 <li>기업 등록</li>
               </a>
             </Link>
           </ul>
         </Register>
-        <MediaNav>
-          햄버거
+
+        {/* 미디어 넷바, 어사이드창으로 띄울 것*/}
+        <MediaNav onClick={onMedia} mediaShow={mediaShow}>
+          <GiHamburgerMenu size={24} />
           <ul>
             <Link href="/">
               <a>
                 <li>로그인</li>
               </a>
             </Link>
-            <Link href="/">
+            <Link href="/register">
               <a>
                 <li>회원가입</li>
               </a>
             </Link>
-            <Link href="/">
+            <Link href="/enterprise">
               <a>
                 <li>기업 등록</li>
               </a>
             </Link>
-          </ul>
-          <ul>
-            <li>고객센터</li>
-            <li>이벤트</li>
-            <li>자주 묻는 질문</li>
+            <div
+              style={{
+                width: "50%",
+                background: "black",
+                height: "1px",
+                margin: "0.3em auto",
+              }}
+            ></div>
+            <Link href="/service">
+              <a>
+                <li>고객센터</li>
+              </a>
+            </Link>
+            <Link href="/suggestions">
+              <a>
+                <li>건의사항</li>
+              </a>
+            </Link>
+            <Link href="/questions">
+              <a>
+                <li>자주 묻는 질문</li>
+              </a>
+            </Link>
           </ul>
         </MediaNav>
       </Headers>

@@ -4,10 +4,10 @@ const Section = styled.section`
   padding: 1em;
 `;
 
-export default function MatchUp() {
+export default function Question() {
   return (
     <>
-      <Section>매치업 페이지는 준비 중 입니다</Section>
+      <Section>자주묻는질문 페이지는 준비 중 입니다</Section>
     </>
   );
 }

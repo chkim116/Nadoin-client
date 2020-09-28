@@ -1,16 +1,16 @@
 import Footer from "../components/Layouts/Footer";
 import Header from "../components/Layouts/Header";
 import Head from "next/head";
-import MatchUp from "../components/match/MatchUp";
+import Question from "../components/viewmore/Question";
 
-export default function Matchup() {
+export default function Service() {
   return (
     <>
       <Head>
-        <title>Nadoin | 매치업</title>
+        <title>Nadoin | 자주 묻는 질문</title>
       </Head>
       <Header />
-      <MatchUp />
+      <Question />
       <Footer />
     </>
   );

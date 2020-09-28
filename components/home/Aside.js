@@ -13,15 +13,14 @@ const WrapImg = styled.div`
   text-align: center;
   img {
     position: absolute;
-    background: green;
     width: 100%;
     height: 100%;
     opacity: 0.3;
+    background: #f7323f;
     top: 0;
   }
   div {
     position: absolute;
-    width: 100%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

@@ -21,7 +21,7 @@ const WrapImg = styled.div`
   align-items: center;
   margin-bottom: 45px;
   img {
-    top: 45px;
+    top: 0;
     position: absolute;
     object-fit: fill;
     width: 100%;

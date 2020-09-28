@@ -1,16 +1,16 @@
 import Footer from "../components/Layouts/Footer";
 import Header from "../components/Layouts/Header";
 import Head from "next/head";
-import MatchUp from "../components/match/MatchUp";
+import Search from "../components/jobsearch/Search";
 
-export default function Matchup() {
+export default function Jobsearch() {
   return (
     <>
       <Head>
-        <title>Nadoin | 매치업</title>
+        <title>Nadoin | 채용 탐색</title>
       </Head>
       <Header />
-      <MatchUp />
+      <Search />
       <Footer />
     </>
   );

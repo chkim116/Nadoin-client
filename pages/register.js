@@ -1,16 +1,16 @@
 import Footer from "../components/Layouts/Footer";
 import Header from "../components/Layouts/Header";
 import Head from "next/head";
-import MatchUp from "../components/match/MatchUp";
+import Register from "../components/login/Register";
 
-export default function Matchup() {
+export default function RegisterPage() {
   return (
     <>
       <Head>
-        <title>Nadoin | 매치업</title>
+        <title>Nadoin | 회원가입</title>
       </Head>
       <Header />
-      <MatchUp />
+      <Register />
       <Footer />
     </>
   );
