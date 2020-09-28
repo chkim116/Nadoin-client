@@ -1,4 +1,9 @@
 import styled from "styled-components";
+import Aside from "./Aside";
+import mainImg from "../../image/mainimage.png";
+import img1 from "../../image/story1.png";
+import img2 from "../../image/story2.png";
+import img3 from "../../image/story3.png";
 
 const Sections = styled.section`
   display: flex;
@@ -8,19 +13,19 @@ const Sections = styled.section`
 
 const WrapImg = styled.div`
   position: relative;
-  padding-bottom: 36%;
+  padding-bottom: 50%;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 45px;
   img {
+    top: 45px;
     position: absolute;
-    background: green;
+    object-fit: fill;
     width: 100%;
     height: 100%;
-    opacity: 0.3;
-    top: 0;
   }
   div {
     position: absolute;
@@ -63,17 +68,27 @@ const MainNav = styled.div`
 
 const MainContent = styled.div`
   display: flex;
-  height: 450px;
   max-width: 1260px;
   width: 100%;
   margin: 0 auto;
   margin-top: 3em;
   justify-content: center;
   align-items: center;
+  @media all and (max-width: 780px) {
+    margin-top: 0;
+    flex-direction: column;
+    text-align: center;
+    .main__text {
+      padding: 1em;
+      h3 {
+        margin: 1em 0;
+      }
+    }
+  }
   img {
-    width: 50%;
+    width: 100%;
+    max-width: 800px;
     height: 100%;
-    background: green;
   }
 `;
 
@@ -82,33 +97,18 @@ export default function Section() {
     <>
       <Sections>
         <WrapImg>
-          <img alt="배경이미지" />
-          <div>
-            <h1>이 세상 모든 현장을 위한 발걸음</h1>
-            <h1>사람을 찾습니다, 나도인</h1>
-            <p>지금 나도인과 함께 힘찬 도약을 시작하세요</p>
-            <button>지금 시작하기</button>
-          </div>
+          <img src={mainImg} alt="배경이미지" />
         </WrapImg>
         <Main>
-          <MainNav>
-            <ul>
-              <li>인력</li>
-              <li>요양보호</li>
-              <li>간병인</li>
-              <li>펫시터</li>
-              <li>파출부</li>
-            </ul>
-          </MainNav>
           <MainContent>
-            <img alt="컨텐츠이미지" />
+            <img src={img1} alt="컨텐츠이미지" />
             <div className="main__text">
               <h3>일 잘하는 사람들을 위한 스마트한 이직</h3>
               <p>당신에게 딱 맞는 회사 지금 원티드에서 찾으세요.</p>
             </div>
           </MainContent>
           <MainContent>
-            <img alt="컨텐츠이미지" />
+            <img src={img2} alt="컨텐츠이미지" />
             <div className="main__text">
               <h3>일 잘하는 사람들을 위한 스마트한 이직</h3>
               <p>당신에게 딱 맞는 회사 지금 원티드에서 찾으세요.</p>
@@ -116,7 +116,7 @@ export default function Section() {
           </MainContent>
 
           <MainContent>
-            <img alt="컨텐츠이미지" />
+            <img src={img3} alt="컨텐츠이미지" />
             <div className="main__text">
               <h3>일 잘하는 사람들을 위한 스마트한 이직</h3>
               <p>당신에게 딱 맞는 회사 지금 원티드에서 찾으세요.</p>
@@ -124,6 +124,7 @@ export default function Section() {
           </MainContent>
         </Main>
       </Sections>
+      <Aside />
     </>
   );
 }

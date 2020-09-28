@@ -3,11 +3,12 @@ import styled from "styled-components";
 const WrapImg = styled.div`
   position: relative;
   margin-top: 4em;
-  padding-bottom: 36%;
+  padding-bottom: 20%;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-height: 250px;
   align-items: center;
   text-align: center;
   img {
@@ -20,9 +21,13 @@ const WrapImg = styled.div`
   }
   div {
     position: absolute;
+    width: 100%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    @media all and (max-width: 780px) {
+      font-size: 12px;
+    }
     button {
       cursor: pointer;
       padding: 1em 2em;
@@ -33,51 +38,18 @@ const WrapImg = styled.div`
     }
   }
 `;
-
-const Footers = styled.footer`
-  width: 100%;
-  padding: 2em;
-  min-height: 210px;
-  text-align: center;
-  ul {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    li {
-      margin: 1em;
-      cursor: pointer;
-    }
-  }
-`;
-
-const Year = new Date().getFullYear();
-
-export default function Footer() {
+export default function Aside() {
   return (
     <>
       <WrapImg>
         <img alt="배경이미지" />
         <div>
-          <h1>이 세상 모든 현장을 위한 발걸음</h1>
-          <h1>사람을 찾습니다, 나도인</h1>
+          <h2>이 세상 모든 현장을 위한 발걸음</h2>
+          <h2>사람을 찾습니다, 나도인</h2>
           <p>지금 나도인과 함께 힘찬 도약을 시작하세요</p>
           <button>지금 시작하기</button>
         </div>
       </WrapImg>
-
-      <Footers>
-        <ul>
-          <li>이용약관</li>
-          <li>개인정보 처리방침</li>
-          <li>고객센터</li>
-        </ul>
-        <div>
-          <small>&copy;{Year} taek&kim </small>
-        </div>
-        <div>
-          <small>(주)택김 컴퍼니 | 경기도 성남시 분당구 서현로</small>
-        </div>
-      </Footers>
     </>
   );
 }
