@@ -333,6 +333,11 @@ export default function Header({ logged, onLogged }) {
                     </Link>
                     <Link href="/">
                       <a>
+                        <li>이력서</li>
+                      </a>
+                    </Link>
+                    <Link href="/">
+                      <a>
                         <li>지원현황</li>
                       </a>
                     </Link>
@@ -377,6 +382,11 @@ export default function Header({ logged, onLogged }) {
                 <Link href="/user/[id]" as={"/user/EEKFN385#"}>
                   <a>
                     <li>프로필</li>
+                  </a>
+                </Link>
+                <Link href="/">
+                  <a>
+                    <li>이력서</li>
                   </a>
                 </Link>
                 <Link href="/">

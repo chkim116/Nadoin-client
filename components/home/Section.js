@@ -85,9 +85,11 @@ const MainContent = styled.div`
     }
   }
   img {
-    width: 100%;
-    max-width: 800px;
+    width: 60%;
     height: 100%;
+    @media all and (max-width: 780px) {
+      width: 100%;
+    }
   }
 `;
 
