@@ -23,6 +23,8 @@ const Headers = styled.header`
 `;
 
 const Logo = styled.h3`
+  cursor: pointer;
+
   @media all and (max-width: 400px) {
     display: none;
   }
@@ -241,7 +243,7 @@ export default function Header({ logged }) {
     const { name } = e.target;
     alert(`${name} 가입은 구현 중입니다.`);
   };
-  console.log(logged);
+
   return (
     <>
       {login && (
@@ -260,7 +262,11 @@ export default function Header({ logged }) {
             <span onClick={onClick}> X</span>
           </form>
         </AsideSearch>
-        <Logo>Nadoin</Logo>
+        <Logo>
+          <Link href="/">
+            <a>Nadoin</a>
+          </Link>
+        </Logo>
 
         <Nav>
           <ul>
@@ -309,7 +315,40 @@ export default function Header({ logged }) {
         <Register>
           <ul>
             {logged ? (
-              <li>로그인됨</li>
+              <>
+                <li>알림</li>
+                <div>
+                  <img alt="프로필" />
+                  <ul
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      position: "absolute",
+                    }}
+                  >
+                    <Link href="/user/[id]" as={"/user/EEKFN385#"}>
+                      <a>
+                        <li>프로필</li>
+                      </a>
+                    </Link>
+                    <Link href="/">
+                      <a>
+                        <li>지원현황</li>
+                      </a>
+                    </Link>
+                    <Link href="/">
+                      <a>
+                        <li>북마크</li>
+                      </a>
+                    </Link>
+                    <Link href="/">
+                      <a>
+                        <li>로그아웃</li>
+                      </a>
+                    </Link>
+                  </ul>
+                </div>
+              </>
             ) : (
               <>
                 <li onClick={onLogin}>로그인</li>

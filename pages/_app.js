@@ -3,7 +3,7 @@ import Header from "../components/Layouts/Header";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
-  const [logged, setLogged] = useState(true);
+  const [logged, setLogged] = useState(false);
 
   return (
     <>
