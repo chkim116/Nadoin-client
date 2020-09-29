@@ -24,7 +24,6 @@ const Headers = styled.header`
 
 const Logo = styled.h3`
   cursor: pointer;
-
   @media all and (max-width: 400px) {
     display: none;
   }
@@ -47,7 +46,6 @@ const Nav = styled.nav`
       @media all and (max-width: 400px) {
         margin: 0;
       }
-
       &:hover:before {
         width: 100%;
         position: absolute;
@@ -79,6 +77,7 @@ const Register = styled.div`
 const AsideSearch = styled.aside`
   position: absolute;
   top: 0;
+  margin-left: 1.5em;
   z-index: 55;
   width: 100%;
   text-align: center;
@@ -106,7 +105,7 @@ const AsideSearch = styled.aside`
         width: 50%;
       }
       @media all and (max-width: 480px) {
-        width: 80%;
+        width: 60%;
       }
     }
   }
@@ -198,11 +197,11 @@ const MediaNav = styled.nav`
 `;
 
 const Search = styled.div`
-  line-height: 52px;
   cursor: pointer;
+  margin-top: 14px;
 `;
 
-export default function Header({ logged }) {
+export default function Header({ logged, onLogged }) {
   const [show, setShow] = useState(false);
   const [mediaShow, setMediaShow] = useState(false);
   const [login, setLogin] = useState(false);
@@ -250,6 +249,7 @@ export default function Header({ logged }) {
         <Login
           SocialBtnClick={SocialBtnClick}
           onLogin={onLogin}
+          onLogged={onLogged}
           onSubmit={onSubmit}
           login={login}
         />
@@ -343,7 +343,7 @@ export default function Header({ logged }) {
                     </Link>
                     <Link href="/">
                       <a>
-                        <li>로그아웃</li>
+                        <li onClick={onLogged}>로그아웃</li>
                       </a>
                     </Link>
                   </ul>
@@ -371,44 +371,96 @@ export default function Header({ logged }) {
         <MediaNav onClick={onMedia} mediaShow={mediaShow}>
           <GiHamburgerMenu size={24} />
           <ul>
-            <Link href="/">
-              <a>
-                <li>로그인</li>
-              </a>
-            </Link>
-            <Link href="/register">
-              <a>
-                <li>회원가입</li>
-              </a>
-            </Link>
-            <Link href="/enterprise">
-              <a>
-                <li>기업 등록</li>
-              </a>
-            </Link>
-            <div
-              style={{
-                width: "50%",
-                background: "black",
-                height: "1px",
-                margin: "0.3em auto",
-              }}
-            ></div>
-            <Link href="/service">
-              <a>
-                <li>고객센터</li>
-              </a>
-            </Link>
-            <Link href="/suggestions">
-              <a>
-                <li>건의사항</li>
-              </a>
-            </Link>
-            <Link href="/questions">
-              <a>
-                <li>자주 묻는 질문</li>
-              </a>
-            </Link>
+            {logged ? (
+              <>
+                <li>알림</li>
+                <Link href="/user/[id]" as={"/user/EEKFN385#"}>
+                  <a>
+                    <li>프로필</li>
+                  </a>
+                </Link>
+                <Link href="/">
+                  <a>
+                    <li>지원현황</li>
+                  </a>
+                </Link>
+                <Link href="/">
+                  <a>
+                    <li>북마크</li>
+                  </a>
+                </Link>
+                <Link href="/">
+                  <a>
+                    <li onClick={onLogged}>로그아웃</li>
+                  </a>
+                </Link>
+                <Link href="/enterprise">
+                  <a>
+                    <li>기업 등록</li>
+                  </a>
+                </Link>
+                <div
+                  style={{
+                    width: "50%",
+                    background: "black",
+                    height: "1px",
+                    margin: "0.3em auto",
+                  }}
+                ></div>
+                <Link href="/service">
+                  <a>
+                    <li>고객센터</li>
+                  </a>
+                </Link>
+                <Link href="/suggestions">
+                  <a>
+                    <li>건의사항</li>
+                  </a>
+                </Link>
+                <Link href="/questions">
+                  <a>
+                    <li>자주 묻는 질문</li>
+                  </a>
+                </Link>
+              </>
+            ) : (
+              <>
+                <li onClick={onLogin}>로그인</li>
+                <Link href="/register">
+                  <a>
+                    <li>회원가입</li>
+                  </a>
+                </Link>
+                <Link href="/enterprise">
+                  <a>
+                    <li>기업 등록</li>
+                  </a>
+                </Link>
+                <div
+                  style={{
+                    width: "50%",
+                    background: "black",
+                    height: "1px",
+                    margin: "0.3em auto",
+                  }}
+                ></div>
+                <Link href="/service">
+                  <a>
+                    <li>고객센터</li>
+                  </a>
+                </Link>
+                <Link href="/suggestions">
+                  <a>
+                    <li>건의사항</li>
+                  </a>
+                </Link>
+                <Link href="/questions">
+                  <a>
+                    <li>자주 묻는 질문</li>
+                  </a>
+                </Link>
+              </>
+            )}
           </ul>
         </MediaNav>
       </Headers>

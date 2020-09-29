@@ -9,6 +9,7 @@
     "netlify-deploy": "next build && next export"
   },
   "dependencies": {
+    "axios": "^0.20.0",
     "babel-plugin-styled-components": "^1.11.1",
     "next": "9.5.3",
     "next-images": "^1.5.0",

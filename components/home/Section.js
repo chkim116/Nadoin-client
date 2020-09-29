@@ -19,7 +19,6 @@ const WrapImg = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 45px;
   img {
     top: 0;
     position: absolute;
@@ -105,6 +104,11 @@ export default function Section() {
             <div className="main__text">
               <h3>일 잘하는 사람들을 위한 스마트한 이직</h3>
               <p>당신에게 딱 맞는 회사 지금 원티드에서 찾으세요.</p>
+              <MainNav>
+                <ul>
+                  <li>지역별로 찾아보기</li>
+                </ul>
+              </MainNav>
             </div>
           </MainContent>
           <MainContent>
@@ -112,6 +116,11 @@ export default function Section() {
             <div className="main__text">
               <h3>일 잘하는 사람들을 위한 스마트한 이직</h3>
               <p>당신에게 딱 맞는 회사 지금 원티드에서 찾으세요.</p>
+              <MainNav>
+                <ul>
+                  <li>업종별로 찾아보기</li>
+                </ul>
+              </MainNav>
             </div>
           </MainContent>
 
@@ -120,6 +129,11 @@ export default function Section() {
             <div className="main__text">
               <h3>일 잘하는 사람들을 위한 스마트한 이직</h3>
               <p>당신에게 딱 맞는 회사 지금 원티드에서 찾으세요.</p>
+              <MainNav>
+                <ul>
+                  <li>매치업 시작하기</li>
+                </ul>
+              </MainNav>
             </div>
           </MainContent>
         </Main>

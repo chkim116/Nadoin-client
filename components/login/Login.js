@@ -28,7 +28,7 @@ const LoginModal = styled.div`
   padding: 1em;
   position: relative;
   height: 550px;
-  width: 600px;
+  width: 400px;
   top: 10%;
   left: 50%;
   transform: translateX(-50%);
@@ -38,6 +38,9 @@ const LoginModal = styled.div`
   align-items: center;
   background: white;
   border-radius: 12px;
+  @media all and (max-width: 480px) {
+    width: 100%;
+  }
   span {
     position: absolute;
     width: 25px;
@@ -70,20 +73,25 @@ const LoginForm = styled.form`
     opacity: 0.5;
   }
   input {
-    width: 50%;
-    height: 45px;
+    width: 70%;
+    height: 40px;
     padding: 0.5em 1em;
     margin: 0.8em auto;
+    @media all and (max-width: 440px) {
+      width: 70%;
+    }
   }
   input:nth-child(3) {
-    width: 25%;
-    height: 30px;
+    width: 250px;
+    height: 35px;
     background: #0984e3;
     cursor: pointer;
     outline: none;
     border: none;
     border-radius: 12px;
     color: white;
+    font-weight: bold;
+    font-size: 15px;
   }
 `;
 
@@ -92,36 +100,30 @@ const SocialBtn = styled.div`
   flex-direction: column;
   button {
     margin: 0.8em 0;
-    border-radius: 12px;
-    color: white;
-    background: #0984e3;
     cursor: pointer;
     text-align: center;
     width: 250px;
     height: 40px;
-  }
-  button:nth-child(1) {
-    background: #2daf00;
-  }
-  button:nth-child(2) {
-    background: #f7e600;
+    box-shadow: 0 1px 2px 3px #ecf0f1;
+    border-radius: 12px;
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: bold;
   }
 `;
 
 const RegisterBtn = styled.div`
   display: flex;
-  flex-direction: column;
   text-align: center;
   a {
     font-size: small;
-    margin: 0.5em 0;
+    margin: 0 0.5em;
     &:hover {
       text-decoration: underline;
     }
   }
 `;
 
-export default function Login({ onLogin, onSubmit, SocialBtnClick }) {
+export default function Login({ onLogged, onLogin, onSubmit, SocialBtnClick }) {
   return (
     <>
       <Section>
@@ -133,7 +135,7 @@ export default function Login({ onLogin, onSubmit, SocialBtnClick }) {
             <LoginForm onSubmit={onSubmit}>
               <input type="text" placeholder="이메일 입력" />
               <input type="password" placeholder="비밀번호 입력" />
-              <input type="submit" value="로그인" />
+              <input type="submit" onClick={onLogged} value="로그인" />
             </LoginForm>
             <SocialBtn onClick={SocialBtnClick}>
               <button type="button" name="네이버">
@@ -147,13 +149,11 @@ export default function Login({ onLogin, onSubmit, SocialBtnClick }) {
               </button>
             </SocialBtn>
             <RegisterBtn>
-              <small>아이디가 없으세요?</small>
               <Link href="/register">
-                <a>회원가입</a>
+                <a onClick={onLogin}>회원가입</a>
               </Link>
-              <small>비밀번호를 잊으셨나요?</small>
               <Link href="/user/passwordfind">
-                <a>비밀번호 찾기</a>
+                <a onClick={onLogin}>비밀번호 찾기</a>
               </Link>
             </RegisterBtn>
           </LoginModal>

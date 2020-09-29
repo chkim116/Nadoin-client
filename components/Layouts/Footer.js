@@ -5,6 +5,16 @@ const Footers = styled.footer`
   padding: 2em;
   min-height: 210px;
   text-align: center;
+  position: relative;
+  &::after {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 1px;
+    background: rgb(195, 195, 195);
+    content: "";
+  }
   ul {
     justify-content: center;
     align-items: center;
@@ -23,6 +33,7 @@ export default function Footer() {
   return (
     <>
       <Footers>
+        <br></br>
         <ul>
           <li>이용약관</li>
           <li>개인정보 처리방침</li>

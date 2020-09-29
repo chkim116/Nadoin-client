@@ -11,7 +11,8 @@ const WrapImg = styled.div`
   min-height: 250px;
   align-items: center;
   text-align: center;
-  img {
+
+  aside {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -41,12 +42,12 @@ export default function Aside() {
   return (
     <>
       <WrapImg>
-        <img alt="배경이미지" />
+        <aside />
         <div>
           <h2>이 세상 모든 현장을 위한 발걸음</h2>
           <h2>사람을 찾습니다, 나도인</h2>
           <p>지금 나도인과 함께 힘찬 도약을 시작하세요</p>
-          <button>지금 시작하기</button>
+          <button>저와 같이 시작해요!</button>
         </div>
       </WrapImg>
     </>
