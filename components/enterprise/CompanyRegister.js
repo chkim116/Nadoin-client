@@ -4,7 +4,10 @@ const Section = styled.section`
   padding: 1em;
 `;
 
-export default function CompanyRegister() {
+export default function CompanyRegister({ hasEnter }) {
+  if (hasEnter) {
+    alert("이미 등록하셨습니다");
+  }
   return (
     <>
       <Section>기업 등록 관련 페이지는 준비 중 입니다.</Section>

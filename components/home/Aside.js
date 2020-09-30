@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const WrapImg = styled.div`
   position: relative;
-  margin-top: 4em;
   padding-bottom: 20%;
   width: 100%;
   display: flex;
@@ -16,13 +15,13 @@ const WrapImg = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    opacity: 0.3;
-    background: #f7323f;
+    background: #393667;
     top: 0;
   }
   div {
     position: absolute;
     top: 50%;
+    color: white;
     left: 50%;
     transform: translate(-50%, -50%);
     @media all and (max-width: 780px) {
@@ -30,8 +29,10 @@ const WrapImg = styled.div`
     }
     button {
       cursor: pointer;
-      padding: 1em 2em;
+      width: 180px;
+      height: 50px;
       margin-top: 1em;
+      font-weight: bold;
       border-radius: 33px;
       background: #0984e3;
       color: white;

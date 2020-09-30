@@ -46,6 +46,7 @@ const WrapImg = styled.div`
 `;
 
 const Main = styled.main`
+  background: #f7fafd;
   display: flex;
   flex-direction: column;
 `;
@@ -58,6 +59,7 @@ const MainNav = styled.div`
       margin: 1em;
       padding: 1em 2em;
       cursor: pointer;
+      font-weight: bold;
       background: #0984e3;
       color: white;
       border-radius: 33px;
@@ -67,25 +69,27 @@ const MainNav = styled.div`
 
 const MainContent = styled.div`
   display: flex;
-  max-width: 1260px;
+  max-width: 1200px;
+  background: white;
+  border: 1px solid rgb(195, 195, 195);
   width: 100%;
-  margin: 0 auto;
-  margin-top: 3em;
+  margin: 2em auto;
   justify-content: center;
   align-items: center;
   @media all and (max-width: 780px) {
-    margin-top: 0;
+    margin: 1.5em 0;
     flex-direction: column;
     text-align: center;
     .main__text {
       padding: 1em;
+      border-top: 1px solid black;
       h3 {
         margin: 1em 0;
       }
     }
   }
   img {
-    width: 60%;
+    width: 50%;
     height: 100%;
     @media all and (max-width: 780px) {
       width: 100%;

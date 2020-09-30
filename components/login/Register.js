@@ -44,7 +44,7 @@ const RegisterForm = styled.form`
       padding: 0.8em 1em;
       border: none;
       outline: none;
-      box-shadow: 0 0 1px 1px rgb(195, 195, 195);
+      border: 1px solid rgb(195, 195, 195);
       border-radius: 12px;
       @media all and (max-width: 940px) {
         width: 230px;
@@ -63,6 +63,7 @@ const RegisterForm = styled.form`
   .checkbox {
     display: flex;
     flex-direction: column;
+    text-align: center;
     label {
       margin: 1em 0;
       font-size: 14px;

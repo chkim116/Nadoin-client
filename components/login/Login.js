@@ -77,21 +77,23 @@ const LoginForm = styled.form`
     height: 40px;
     padding: 0.5em 1em;
     margin: 0.8em auto;
+    border: 1px solid rgb(195, 195, 195);
+    border-radius: 12px;
     @media all and (max-width: 440px) {
       width: 70%;
     }
   }
   input:nth-child(3) {
+    outline: none;
     width: 250px;
     height: 35px;
+    border: 1px solid rgb(195, 195, 195);
     background: #0984e3;
-    cursor: pointer;
-    outline: none;
-    border: none;
-    border-radius: 12px;
     color: white;
+    border-radius: 12px;
     font-weight: bold;
     font-size: 15px;
+    cursor: pointer;
   }
 `;
 

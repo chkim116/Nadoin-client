@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineSearch, AiOutlineBell } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
 import Link from "next/link";
@@ -17,6 +17,7 @@ const Headers = styled.header`
   justify-content: space-around;
   align-items: center;
   font-weight: bold;
+  color: black;
   h3 {
     cursor: pointer;
   }
@@ -56,6 +57,26 @@ const Nav = styled.nav`
         border-bottom: 2px solid #0984e3;
       }
     }
+    .notice-bell {
+      display: none;
+      position: relative;
+      top: 14px;
+      left: 20px;
+      cursor: pointer;
+      &::after {
+        content: "2";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 3px;
+        height: 3px;
+        font-size: 6px;
+        pointer-events: none;
+      }
+      @media all and (max-width: 780px) {
+        display: block;
+      }
+    }
   }
 `;
 
@@ -70,6 +91,28 @@ const Register = styled.div`
     li {
       cursor: pointer;
       margin: 1em;
+    }
+    div {
+      &:hover .user__profile {
+        display: block;
+      }
+      .user__profile {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        display: none;
+        background: white;
+        top: 45px;
+        li {
+          padding: 0.8em 1.5em;
+          margin: 0;
+          font-size: 14px;
+          &:hover {
+            background: #0984e3;
+            color: white;
+          }
+        }
+      }
     }
   }
 `;
@@ -92,12 +135,15 @@ const AsideSearch = styled.aside`
       padding: 0.4em 1.2em;
       margin: 0 0.5em;
       cursor: pointer;
+      border: 1px solid rgb(195, 195, 195);
     }
     input {
       padding: 0.4em 1.2em;
       width: 30%;
       top: 0;
       text-align: center;
+      border: 1px solid rgb(195, 195, 195);
+      outline: none;
       &:focus {
         text-align: left;
       }
@@ -184,7 +230,6 @@ const MediaNav = styled.nav`
         }
       }
     }
-
     @keyframes mediabar {
       0% {
         transform: translateX(100%);
@@ -201,6 +246,26 @@ const Search = styled.div`
   margin-top: 14px;
 `;
 
+const HeaderLink = (props) => {
+  return (
+    <Link href={props.url}>
+      <a>
+        <li>{props.page}</li>
+      </a>
+    </Link>
+  );
+};
+
+const HeaderIdLink = (props) => {
+  return (
+    <Link href={props.url} as={props.as}>
+      <a>
+        <li>{props.page}</li>
+      </a>
+    </Link>
+  );
+};
+
 export default function Header({ logged, onLogged }) {
   const [show, setShow] = useState(false);
   const [mediaShow, setMediaShow] = useState(false);
@@ -215,16 +280,6 @@ export default function Header({ logged, onLogged }) {
     mediaShow ? setMediaShow(false) : setMediaShow(true);
   };
 
-  const onLogin = () => {
-    login ? setLogin(false) : setLogin(true);
-  };
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-    router.push("/");
-    setLogin(false);
-  };
-
   const onChange = (e) => {
     const { value } = e.target;
     setSearching({ ...searching, value });
@@ -236,6 +291,16 @@ export default function Header({ logged, onLogged }) {
     setSearching({ value: "" });
     e.target.reset();
     setShow(false);
+  };
+
+  const onLogin = () => {
+    login ? setLogin(false) : setLogin(true);
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    router.push("/");
+    setLogin(false);
   };
 
   const SocialBtnClick = (e) => {
@@ -254,6 +319,7 @@ export default function Header({ logged, onLogged }) {
           login={login}
         />
       )}
+
       <Headers>
         <AsideSearch show={show}>
           <form onChange={onChange} onSubmit={onSearching}>
@@ -262,6 +328,7 @@ export default function Header({ logged, onLogged }) {
             <span onClick={onClick}> X</span>
           </form>
         </AsideSearch>
+
         <Logo>
           <Link href="/">
             <a>Nadoin</a>
@@ -270,45 +337,24 @@ export default function Header({ logged, onLogged }) {
 
         <Nav>
           <ul>
-            <Link href="/">
-              <a>
-                <li>홈</li>
-              </a>
-            </Link>
-            <Link href="/jobsearch">
-              <a>
-                <li>탐색</li>
-              </a>
-            </Link>
-            <Link href="/matchup">
-              <a>
-                <li>매치업</li>
-              </a>
-            </Link>
+            <HeaderLink url={"/"} page={"홈"} />
+            <HeaderLink url={"/jobsearch"} page={"탐색"} />
+            <HeaderLink url={"/matchup"} page={"매치업"} />
 
             <DropMenu>
               <li>더보기</li>
               <ul>
-                <Link href="/service">
-                  <a>
-                    <li>고객센터</li>
-                  </a>
-                </Link>
-                <Link href="/suggestions">
-                  <a>
-                    <li>건의사항</li>
-                  </a>
-                </Link>
-                <Link href="/questions">
-                  <a>
-                    <li>자주 묻는 질문</li>
-                  </a>
-                </Link>
+                <HeaderLink url={"/service"} page={"고객센터"} />
+                <HeaderLink url={"/suggestions"} page={"건의사항"} />
+                <HeaderLink url={"/questions"} page={"자주 묻는 질문"} />
               </ul>
             </DropMenu>
             <Search>
               <AiOutlineSearch size={20} onClick={onClick} />
             </Search>
+            <div className="notice-bell">
+              <AiOutlineBell size={20} />
+            </div>
           </ul>
         </Nav>
 
@@ -317,35 +363,29 @@ export default function Header({ logged, onLogged }) {
             {logged ? (
               <>
                 <li>알림</li>
-                <div>
-                  <img alt="프로필" />
-                  <ul
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      position: "absolute",
-                    }}
-                  >
-                    <Link href="/user/[id]" as={"/user/EEKFN385#"}>
-                      <a>
-                        <li>프로필</li>
-                      </a>
-                    </Link>
-                    <Link href="/">
-                      <a>
-                        <li>이력서</li>
-                      </a>
-                    </Link>
-                    <Link href="/">
-                      <a>
-                        <li>지원현황</li>
-                      </a>
-                    </Link>
-                    <Link href="/">
-                      <a>
-                        <li>북마크</li>
-                      </a>
-                    </Link>
+                <div className="user">
+                  <li>내정보</li>
+                  <ul className="user__profile">
+                    <HeaderIdLink
+                      url={"/user/[id]/profile"}
+                      as={"/user/EEKFN385/profile"}
+                      page={"프로필"}
+                    />
+                    <HeaderIdLink
+                      url={"/user/[id]/resume"}
+                      as={"/user/EEKFN385/resume"}
+                      page={"이력서"}
+                    />
+                    <HeaderIdLink
+                      url={"/user/[id]/applications"}
+                      as={"/user/EEKFN385/applications"}
+                      page={"지원 현황"}
+                    />
+                    <HeaderIdLink
+                      url={"/user/[id]/bookmark"}
+                      as={"/user/EEKFN385/bookmark"}
+                      page={"북마크"}
+                    />
                     <Link href="/">
                       <a>
                         <li onClick={onLogged}>로그아웃</li>
@@ -357,18 +397,10 @@ export default function Header({ logged, onLogged }) {
             ) : (
               <>
                 <li onClick={onLogin}>로그인</li>
-                <Link href="/register">
-                  <a>
-                    <li>회원가입</li>
-                  </a>
-                </Link>
+                <HeaderLink url={"/register"} page={"회원가입"} />
               </>
             )}
-            <Link href="/enterprise">
-              <a>
-                <li>기업 등록</li>
-              </a>
-            </Link>
+            <HeaderLink url={"/enterprise"} page={"기업 등록"} />
           </ul>
         </Register>
 
@@ -379,26 +411,26 @@ export default function Header({ logged, onLogged }) {
             {logged ? (
               <>
                 <li>알림</li>
-                <Link href="/user/[id]" as={"/user/EEKFN385#"}>
-                  <a>
-                    <li>프로필</li>
-                  </a>
-                </Link>
-                <Link href="/">
-                  <a>
-                    <li>이력서</li>
-                  </a>
-                </Link>
-                <Link href="/">
-                  <a>
-                    <li>지원현황</li>
-                  </a>
-                </Link>
-                <Link href="/">
-                  <a>
-                    <li>북마크</li>
-                  </a>
-                </Link>
+                <HeaderIdLink
+                  url={"/user/[id]/profile"}
+                  as={"/user/EEKFN385/profile"}
+                  page={"프로필"}
+                />
+                <HeaderIdLink
+                  url={"/user/[id]/resume"}
+                  as={"/user/EEKFN385/resume"}
+                  page={"이력서"}
+                />
+                <HeaderIdLink
+                  url={"/user/[id]/applications"}
+                  as={"/user/EEKFN385/applications"}
+                  page={"지원 현황"}
+                />
+                <HeaderIdLink
+                  url={"/user/[id]/bookmark"}
+                  as={"/user/EEKFN385/bookmark"}
+                  page={"북마크"}
+                />
                 <Link href="/">
                   <a>
                     <li onClick={onLogged}>로그아웃</li>
@@ -409,66 +441,20 @@ export default function Header({ logged, onLogged }) {
                     <li>기업 등록</li>
                   </a>
                 </Link>
-                <div
-                  style={{
-                    width: "50%",
-                    background: "black",
-                    height: "1px",
-                    margin: "0.3em auto",
-                  }}
-                ></div>
-                <Link href="/service">
-                  <a>
-                    <li>고객센터</li>
-                  </a>
-                </Link>
-                <Link href="/suggestions">
-                  <a>
-                    <li>건의사항</li>
-                  </a>
-                </Link>
-                <Link href="/questions">
-                  <a>
-                    <li>자주 묻는 질문</li>
-                  </a>
-                </Link>
+                <hr></hr>
+                <HeaderLink url={"/service"} page={"고객센터"} />
+                <HeaderLink url={"/suggestions"} page={"건의사항"} />
+                <HeaderLink url={"/questions"} page={"자주 묻는 질문"} />
               </>
             ) : (
               <>
                 <li onClick={onLogin}>로그인</li>
-                <Link href="/register">
-                  <a>
-                    <li>회원가입</li>
-                  </a>
-                </Link>
-                <Link href="/enterprise">
-                  <a>
-                    <li>기업 등록</li>
-                  </a>
-                </Link>
-                <div
-                  style={{
-                    width: "50%",
-                    background: "black",
-                    height: "1px",
-                    margin: "0.3em auto",
-                  }}
-                ></div>
-                <Link href="/service">
-                  <a>
-                    <li>고객센터</li>
-                  </a>
-                </Link>
-                <Link href="/suggestions">
-                  <a>
-                    <li>건의사항</li>
-                  </a>
-                </Link>
-                <Link href="/questions">
-                  <a>
-                    <li>자주 묻는 질문</li>
-                  </a>
-                </Link>
+                <HeaderLink url={"/register"} page={"회원가입"} />
+                <HeaderLink url={"/enterprise"} page={"기업 등록"} />
+                <hr></hr>
+                <HeaderLink url={"/service"} page={"고객센터"} />
+                <HeaderLink url={"/suggestions"} page={"건의사항"} />
+                <HeaderLink url={"/questions"} page={"자주 묻는 질문"} />
               </>
             )}
           </ul>
