@@ -3,7 +3,7 @@ import Header from "../../components/Layouts/Header";
 import Title from "../../components/Layouts/Title";
 import Password from "../../components/users/Password";
 
-export default function passwordfind() {
+export default function passwordfind({ Nadoin }) {
   return (
     <>
       <Title title={Nadoin} desc="패스워드 찾기" />

@@ -3,7 +3,7 @@ import Header from "../../../components/Layouts/Header";
 import Title from "../../../components/Layouts/Title";
 import LoginPage from "../../../components/login/LoginPage";
 
-export default function applications({ logged }) {
+export default function applications({ logge, Nadoin }) {
   return (
     <>
       <Title title={Nadoin} desc="지원현황" />

@@ -3,7 +3,7 @@ import Header from "../../../components/Layouts/Header";
 import Title from "../../../components/Layouts/Title";
 import LoginPage from "../../../components/login/LoginPage";
 
-export default function resume({ logged }) {
+export default function resume({ logged, Nadoin }) {
   return (
     <>
       <Title title={Nadoin} desc="이력서" />
