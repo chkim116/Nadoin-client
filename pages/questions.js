@@ -1,14 +1,12 @@
 import Footer from "../components/Layouts/Footer";
 import Header from "../components/Layouts/Header";
-import Head from "next/head";
 import Question from "../components/viewmore/Question";
+import Title from "../components/Layouts/Title";
 
-export default function Service() {
+export default function Service({ Nadoin }) {
   return (
     <>
-      <Head>
-        <title>Nadoin | 자주 묻는 질문</title>
-      </Head>
+      <Title title={Nadoin} desc="자주 묻는 질문" />
       <Header />
       <Question />
       <Footer />

@@ -14,6 +14,8 @@ function MyApp({ Component, pageProps }) {
   });
   const { logged, hasEnter } = loggedUser;
 
+  const Nadoin = "나도인";
+
   const onLogged = (e) => {
     router.push("/");
     logged
@@ -36,6 +38,7 @@ function MyApp({ Component, pageProps }) {
         hasEnter={hasEnter}
         onLogged={onLogged}
         onJoinEnter={onJoinEnter}
+        Nadoin={Nadoin}
       />
       ;
       <Header logged={logged} onLogged={onLogged} />

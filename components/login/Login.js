@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 
-const Section = styled.section`
+const SectionBlock = styled.section`
   position: absolute;
   top: 0;
   z-index: 100;
@@ -128,7 +128,7 @@ const RegisterBtn = styled.div`
 export default function Login({ onLogged, onLogin, onSubmit, SocialBtnClick }) {
   return (
     <>
-      <Section>
+      <SectionBlock>
         <Article>
           <LoginModal>
             <h2>Login</h2>
@@ -160,7 +160,7 @@ export default function Login({ onLogged, onLogin, onSubmit, SocialBtnClick }) {
             </RegisterBtn>
           </LoginModal>
         </Article>
-      </Section>
+      </SectionBlock>
     </>
   );
 }

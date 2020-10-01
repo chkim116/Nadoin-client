@@ -6,18 +6,24 @@ import Link from "next/link";
 import router from "next/router";
 import Login from "../login/Login";
 
-const Headers = styled.header`
+const HeaderBlock = styled.header`
   background-color: white;
   z-index: 50;
+  overflow: hidden;
   position: fixed;
   width: 100%;
   top: 0;
+  right: 0;
+  left: 0;
   height: 45px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   font-weight: bold;
   color: black;
+  @media all and (max-width: 400px) {
+    justify-content: space-between;
+  }
   h3 {
     cursor: pointer;
   }
@@ -40,7 +46,7 @@ const Nav = styled.nav`
       }
     }
     li {
-      margin: 0 1em;
+      margin: 0 0.6em;
       padding: 1em;
       cursor: pointer;
       position: relative;
@@ -59,9 +65,9 @@ const Nav = styled.nav`
     }
     .notice-bell {
       display: none;
-      position: relative;
-      top: 14px;
-      left: 20px;
+      position: absolute;
+      top: 11px;
+      left: 0;
       cursor: pointer;
       &::after {
         content: "2";
@@ -199,9 +205,9 @@ const DropMenu = styled.ul`
 const MediaNav = styled.nav`
   display: none;
   @media all and (max-width: 780px) {
-    top: 0;
-    right: 5%;
     display: block;
+    position: relative;
+    top: 2px;
     cursor: pointer;
     ul {
       position: fixed;
@@ -320,7 +326,7 @@ export default function Header({ logged, onLogged }) {
         />
       )}
 
-      <Headers>
+      <HeaderBlock>
         <AsideSearch show={show}>
           <form onChange={onChange} onSubmit={onSearching}>
             <input type="text" placeholder="검색하세요!" />
@@ -410,7 +416,6 @@ export default function Header({ logged, onLogged }) {
           <ul>
             {logged ? (
               <>
-                <li>알림</li>
                 <HeaderIdLink
                   url={"/user/[id]/profile"}
                   as={"/user/EEKFN385/profile"}
@@ -459,7 +464,7 @@ export default function Header({ logged, onLogged }) {
             )}
           </ul>
         </MediaNav>
-      </Headers>
+      </HeaderBlock>
     </>
   );
 }

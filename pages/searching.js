@@ -1,14 +1,12 @@
 import Footer from "../components/Layouts/Footer";
 import Header from "../components/Layouts/Header";
-import Head from "next/head";
+import Title from "../components/Layouts/Title";
 import Search from "../components/searching/Searching";
 
-export default function Searching() {
+export default function Searching({ Nadoin }) {
   return (
     <>
-      <Head>
-        <title>Nadoin | 검색결과</title>
-      </Head>
+      <Title title={Nadoin} desc="검색 결과" />
       <Header />
       <Search />
       <Footer />

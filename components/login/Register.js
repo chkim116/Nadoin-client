@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Section = styled.section`
+const SectionBlock = styled.section`
   padding: 5em;
   @media all and (max-width: 710px) {
     padding: 0;
@@ -99,7 +99,7 @@ export default function Register({ onLogged }) {
   };
   return (
     <>
-      <Section>
+      <SectionBlock>
         <RegisterForm onSubmit={onSubmit}>
           <br></br>
           <h2>아이디/비밀번호</h2>
@@ -174,7 +174,7 @@ export default function Register({ onLogged }) {
           <br></br>
           <br></br>
         </RegisterForm>
-      </Section>
+      </SectionBlock>
     </>
   );
 }

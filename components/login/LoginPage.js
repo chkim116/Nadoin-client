@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 
-const Section = styled.section`
+const SectionBlock = styled.section`
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -94,7 +94,7 @@ export default function LoginPage({ onLogged }) {
   };
 
   return (
-    <Section>
+    <SectionBlock>
       <h3>로그인</h3>
       <LoginForm onSubmit={onLogged}>
         <input type="text" placeholder="이메일 입력" />
@@ -120,6 +120,6 @@ export default function LoginPage({ onLogged }) {
           <a>비밀번호 찾기</a>
         </Link>
       </RegisterBtn>
-    </Section>
+    </SectionBlock>
   );
 }

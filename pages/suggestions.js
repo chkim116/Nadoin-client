@@ -1,14 +1,11 @@
 import Footer from "../components/Layouts/Footer";
 import Header from "../components/Layouts/Header";
-import Head from "next/head";
 import Suggestion from "../components/viewmore/Suggestion";
 
-export default function Suggestions() {
+export default function Suggestions({ Nadoin }) {
   return (
     <>
-      <Head>
-        <title>Nadoin | 건의사항</title>
-      </Head>
+      <Title title={Nadoin} desc="건의사항" />
       <Header />
       <Suggestion />
       <Footer />

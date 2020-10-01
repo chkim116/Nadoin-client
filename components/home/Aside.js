@@ -10,7 +10,7 @@ const WrapImg = styled.div`
   min-height: 250px;
   align-items: center;
   text-align: center;
-
+  margin-top: 4em;
   aside {
     position: absolute;
     width: 100%;

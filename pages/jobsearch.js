@@ -1,14 +1,12 @@
 import Footer from "../components/Layouts/Footer";
 import Header from "../components/Layouts/Header";
-import Head from "next/head";
 import Search from "../components/jobsearch/Search";
+import Title from "../components/Layouts/Title";
 
-export default function Jobsearch() {
+export default function Jobsearch({ Nadoin }) {
   return (
     <>
-      <Head>
-        <title>Nadoin | 채용 탐색</title>
-      </Head>
+      <Title title={Nadoin} desc="채용탐색" />
       <Header />
       <Search />
       <Footer />
