@@ -26,17 +26,24 @@ const Slide = styled.div`
   outline: none;
   margin: 0 auto;
   .slider {
-    padding: 1em;
     position: relative;
     padding-bottom: 30%;
     background: green;
     width: 100%;
     .slide {
+      padding: 1em;
       position: absoulte;
       width: 100%;
       height: 100%;
       top: 0;
     }
+  }
+  .slick-next,
+  .slick-prev {
+    display: none !important;
+  }
+  .slick-track {
+    width: 100%;
   }
 `;
 
@@ -212,7 +219,6 @@ const MobileSectionBlock = styled.div`
     }
   }
 `;
-
 export default function Section() {
   const settings = {
     dots: true,

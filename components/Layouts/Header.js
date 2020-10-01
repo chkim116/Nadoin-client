@@ -19,7 +19,7 @@ const HeaderBlock = styled.header`
   font-weight: bold;
   color: black;
   @media all and (max-width: 400px) {
-    justify-content: space-between;
+    justify-content: space-around;
   }
   h3 {
     cursor: pointer;
@@ -28,7 +28,7 @@ const HeaderBlock = styled.header`
 
 const Logo = styled.h3`
   cursor: pointer;
-  @media all and (max-width: 400px) {
+  @media all and (max-width: 480px) {
     display: none;
   }
 `;
