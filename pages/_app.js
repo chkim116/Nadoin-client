@@ -40,7 +40,6 @@ function MyApp({ Component, pageProps }) {
         onJoinEnter={onJoinEnter}
         Nadoin={Nadoin}
       />
-      ;
       <Header logged={logged} onLogged={onLogged} />
     </>
   );

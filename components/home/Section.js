@@ -13,7 +13,6 @@ import Slider from "react-slick";
 const SectionBlock = styled.section`
   display: flex;
   width: 100%;
-  border: 1px solid black;
   flex-direction: column;
   .main__aside-text {
     text-align: center;
@@ -27,7 +26,6 @@ const Slide = styled.div`
   outline: none;
   margin: 0 auto;
   .slider {
-    border: 1px solid black;
     padding: 1em;
     position: relative;
     padding-bottom: 30%;
@@ -106,13 +104,17 @@ const MainContent = styled.div`
       border-top-right-radius: 12px;
       border-top-left-radius: 12px;
       height: 100%;
+      border: 1px solid rgb(195, 195, 195);
     }
     .main__img-desc {
       width: 100%;
       border: 1px solid rgb(195, 195, 195);
       border-top: none;
+      padding: 0.5em;
+      background: #f7fafd;
       border-bottom-right-radius: 12px;
       border-bottom-left-radius: 12px;
+
       position: relative;
       top: -7px;
     }
@@ -278,21 +280,21 @@ export default function Section() {
             </div>
             <div className="main__img">
               <img src={construction} alt="컨텐츠이미지" />
-              <div className="main__img-desc">건설/인력</div>
+              <div className="main__img-desc desc">건설/인력</div>
             </div>
             <div className="main__img">
               <img src={care} alt="컨텐츠이미지" />
-              <div className="main__img-desc">요양 보호</div>
+              <div className="main__img-desc desc">요양 보호</div>
             </div>
           </MainContent>
           <MainContent>
             <div className="main__img">
               <img src={moving} alt="컨텐츠이미지" />
-              <div className="main__img-desc">이사</div>
+              <div className="main__img-desc desc">이사</div>
             </div>
             <div className="main__img">
               <img src={moving} alt="컨텐츠이미지" />
-              <div className="main__img-desc">파출부/청소부</div>
+              <div className="main__img-desc desc">파출부/청소부</div>
             </div>
             <div className="main__text right">
               <h3>일 잘하는 사람들을 위한 스마트한 이직</h3>

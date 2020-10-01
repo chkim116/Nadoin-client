@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "next/link";
 
 const WrapImg = styled.div`
   position: relative;
@@ -48,7 +49,11 @@ export default function Aside() {
           <h2>이 세상 모든 현장을 위한 발걸음</h2>
           <h2>사람을 찾습니다, 나도인</h2>
           <p>지금 나도인과 함께 힘찬 도약을 시작하세요</p>
-          <button>저와 같이 시작해요!</button>
+          <button>
+            <Link href="jobsearch">
+              <a>저와 같이 시작해요!</a>
+            </Link>
+          </button>
         </div>
       </WrapImg>
     </>

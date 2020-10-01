@@ -9,12 +9,9 @@ import Login from "../login/Login";
 const HeaderBlock = styled.header`
   background-color: white;
   z-index: 50;
-  overflow: hidden;
-  position: fixed;
   width: 100%;
+  position: fixed;
   top: 0;
-  right: 0;
-  left: 0;
   height: 45px;
   display: flex;
   justify-content: space-around;

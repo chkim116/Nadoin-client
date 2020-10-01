@@ -96,7 +96,7 @@ export default function LoginPage({ onLogged }) {
   return (
     <SectionBlock>
       <h3>로그인</h3>
-      <LoginForm onSubmit={onLogged}>
+      <LoginForm onSubmit={onSubmit}>
         <input type="text" placeholder="이메일 입력" />
         <input type="password" placeholder="비밀번호 입력" />
         <input type="submit" onClick={onLogged} value="로그인" />
