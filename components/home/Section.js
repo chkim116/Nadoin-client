@@ -24,14 +24,16 @@ const Slide = styled.div`
   .slider {
     position: relative;
     padding-bottom: 30%;
+    outline: none;
     background: green;
     width: 100%;
     .slide {
-      padding: 1em;
       position: absoulte;
-      width: 100%;
-      height: 100%;
       top: 0;
+      outline: none;
+      pointer-events: none;
+      padding: 1em;
+      width: 100%;
     }
   }
   .slick-next {

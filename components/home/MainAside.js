@@ -13,7 +13,7 @@ const MainAsideBlock = styled.div`
     margin: 1em;
   }
   .main__aside {
-    border: 1px solid black;
+    box-shadow: 0 0 1px 1px rgb(195, 195, 195);
     margin: 0 0.4em;
     display: flex;
     width: 50%;

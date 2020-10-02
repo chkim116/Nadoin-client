@@ -8,6 +8,7 @@ import Login from "../login/Login";
 
 const HeaderBlock = styled.header`
   background-color: white;
+  box-shadow: 0 0 1px 1px rgb(195, 195, 195);
   z-index: 50;
   width: 100%;
   position: fixed;
@@ -133,6 +134,8 @@ const Register = styled.div`
 const AsideSearch = styled.aside`
   position: absolute;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 550;
   width: 100%;
   text-align: center;

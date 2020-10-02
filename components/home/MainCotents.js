@@ -7,7 +7,7 @@ const MainContent = styled.div`
   display: flex;
   max-width: 1200px;
   background: white;
-  border: 1px solid rgb(195, 195, 195);
+  box-shadow: 0 0 1px 1px rgb(195, 195, 195);
   width: 100%;
   min-height: 300px;
   margin: 1em auto;

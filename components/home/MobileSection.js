@@ -28,7 +28,7 @@ const MobileSectionBlock = styled.div`
       .main__img-desc {
         width: 100%;
         font-weight: bold;
-        border: 1px solid rgb(195, 195, 195);
+        box-shadow: 0 0 1px 1px rgb(195, 195, 195);
         border-top: none;
         min-height: 40px;
         background: white;

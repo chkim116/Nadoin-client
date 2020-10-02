@@ -6,12 +6,12 @@ const WrapImg = styled.div`
   padding-bottom: 20%;
   width: 100%;
   display: flex;
+  box-shadow: 0 0 1px 1px rgb(195, 195, 195);
   flex-direction: column;
   justify-content: center;
   min-height: 250px;
   align-items: center;
   text-align: center;
-  margin-top: 4em;
   aside {
     position: absolute;
     width: 100%;
