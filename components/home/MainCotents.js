@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import house from "../../image/housekeeper.jpg";
 import construction from "../../image/construction.jpg";
 import moving from "../../image/moving.jpg";
 import care from "../../image/care.jpg";
@@ -38,6 +37,7 @@ const MainContent = styled.div`
       font-weight: bold;
       background: #0984e3;
       color: white;
+      cursor: pointer;
       border-radius: 33px;
     }
     &.right {
@@ -57,19 +57,14 @@ const MainContent = styled.div`
     img {
       width: 100%;
       object-fit: cover;
-      border-top-right-radius: 12px;
-      border-top-left-radius: 12px;
+      border-radius: 12px;
       height: 100%;
       border: 1px solid rgb(195, 195, 195);
     }
     .main__img-desc {
       width: 100%;
-      border: 1px solid rgb(195, 195, 195);
       border-top: none;
       padding: 0.7em;
-      background: #f7fafd;
-      border-bottom-right-radius: 12px;
-      border-bottom-left-radius: 12px;
       position: relative;
       top: -7px;
     }

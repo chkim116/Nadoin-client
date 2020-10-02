@@ -4,7 +4,7 @@ import Footer from "../components/Layouts/Footer";
 import Header from "../components/Layouts/Header";
 import "../styles/globals.css";
 
-function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }) {
   const router = useRouter();
   // login 추후 api (커스텀 훅)
   // 기업 등록 추후 api (id 당 1개)
@@ -46,5 +46,3 @@ function MyApp({ Component, pageProps }) {
     </>
   );
 }
-
-export default MyApp;

@@ -20,7 +20,7 @@ const MainAsideBlock = styled.div`
     height: 150px;
     @media all and (max-width: 780px) {
       margin: 0.5em 0;
-      width: 70%;
+      width: 85%;
       font-size: 14px;
       min-width: 300px;
     }

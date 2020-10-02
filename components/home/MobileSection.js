@@ -11,9 +11,9 @@ const MobileSectionBlock = styled.div`
     margin: 0 auto;
     width: 100%;
     .main__img {
-      width: 60%;
-      text-align: center;
+      width: 90%;
       position: relative;
+      text-align: center;
       margin: 1em auto;
       min-height: 200px;
       min-width: 280px;
@@ -38,6 +38,12 @@ const MobileSectionBlock = styled.div`
         border-bottom-left-radius: 12px;
         position: relative;
         top: -7px;
+        button {
+          cursor: pointer;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
       }
     }
   }
@@ -49,15 +55,24 @@ export default function MobileSection() {
       <MobileSectionBlock>
         <div className="main__img">
           <img src={construction} alt="컨텐츠이미지" />
-          <div className="main__img-desc">건설업 등 일용직</div>
+          <div className="main__img-desc">
+            <h3>어떤 지역에서 찾으세요?</h3>
+            <button>지역별 찾기</button>
+          </div>
         </div>
         <div className="main__img">
           <img src={care} alt="컨텐츠이미지" />
-          <div className="main__img-desc">요양 및 간병인</div>
+          <div className="main__img-desc">
+            <h3>어떤 업종에서 찾으세요?</h3>
+            <button>업종별 찾기</button>
+          </div>
         </div>
         <div className="main__img">
           <img src={house} alt="컨텐츠이미지" />
-          <div className="main__img-desc">전문청소인력</div>
+          <div className="main__img-desc">
+            <h3>어떤 분을 구인 하세요?</h3>
+            <button>등록하기</button>
+          </div>
         </div>
       </MobileSectionBlock>
     </>
