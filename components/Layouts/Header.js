@@ -77,7 +77,8 @@ const Nav = styled.nav`
       cursor: pointer;
       position: relative;
       @media all and (max-width: 780px) {
-        margin: 0 0.3em;
+        margin: 0;
+        padding: 1em 0.8em 1em 0.8em;
       }
       &:hover:before {
         width: 100%;
@@ -254,7 +255,8 @@ const MediaNavBlock = styled.nav`
 
 const Search = styled.div`
   cursor: pointer;
-  margin-top: 14px;
+  margin-top: 15px;
+  margin-left: 3px;
 `;
 
 const HeaderLink = (props) => {
