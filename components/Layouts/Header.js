@@ -18,8 +18,9 @@ const HeaderBlock = styled.header`
   align-items: center;
   font-weight: bold;
   color: black;
-  @media all and (max-width: 400px) {
-    justify-content: space-around;
+  @media all and (max-width: 780px) {
+    justify-content: space-between;
+    padding: 0 0.7em;
   }
   h3 {
     cursor: pointer;
@@ -28,15 +29,43 @@ const HeaderBlock = styled.header`
 
 const Logo = styled.h3`
   cursor: pointer;
-  @media all and (max-width: 480px) {
+  @media all and (max-width: 780px) {
     display: none;
   }
 `;
 
 const Nav = styled.nav`
+  display: flex;
+  .notice-bell {
+    display: none;
+    position: relative;
+    top: 14px;
+    cursor: pointer;
+    &::after {
+      content: "${(props) => (props.notice ? props.notice : "")}";
+      position: absolute;
+      top: -2px;
+      right: -7px;
+      width: 15px;
+      height: 15px;
+      line-height: 15px;
+      border-radius: 50%;
+      text-align: center;
+      background: red;
+      color: white;
+      font-size: 6px;
+      pointer-events: none;
+    }
+    @media all and (max-width: 780px) {
+      display: block;
+    }
+  }
   ul {
     display: flex;
     font-size: 14px;
+    @media all and (max-width: 780px) {
+      margin-left: 2em;
+    }
     ul {
       @media all and (max-width: 780px) {
         display: none;
@@ -47,8 +76,8 @@ const Nav = styled.nav`
       padding: 1em;
       cursor: pointer;
       position: relative;
-      @media all and (max-width: 400px) {
-        margin: 0;
+      @media all and (max-width: 780px) {
+        margin: 0 0.3em;
       }
       &:hover:before {
         width: 100%;
@@ -58,26 +87,6 @@ const Nav = styled.nav`
         right: 0;
         content: "";
         border-bottom: 2px solid #0984e3;
-      }
-    }
-    .notice-bell {
-      display: none;
-      position: absolute;
-      top: 11px;
-      left: 0;
-      cursor: pointer;
-      &::after {
-        content: "2";
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 3px;
-        height: 3px;
-        font-size: 6px;
-        pointer-events: none;
-      }
-      @media all and (max-width: 780px) {
-        display: block;
       }
     }
   }
@@ -123,8 +132,7 @@ const Register = styled.div`
 const AsideSearch = styled.aside`
   position: absolute;
   top: 0;
-  margin-left: 1.5em;
-  z-index: 55;
+  z-index: 550;
   width: 100%;
   text-align: center;
   animation: searchbar 500ms forwards;
@@ -199,7 +207,7 @@ const DropMenu = styled.ul`
   }
 `;
 
-const MediaNav = styled.nav`
+const MediaNavBlock = styled.nav`
   display: none;
   @media all and (max-width: 780px) {
     display: block;
@@ -338,7 +346,10 @@ export default function Header({ logged, onLogged }) {
           </Link>
         </Logo>
 
-        <Nav>
+        <Nav notice="10">
+          <div className="notice-bell">
+            <AiOutlineBell size={20} />
+          </div>
           <ul>
             <HeaderLink url={"/"} page={"홈"} />
             <HeaderLink url={"/jobsearch"} page={"탐색"} />
@@ -355,9 +366,6 @@ export default function Header({ logged, onLogged }) {
             <Search>
               <AiOutlineSearch size={20} onClick={onClick} />
             </Search>
-            <div className="notice-bell">
-              <AiOutlineBell size={20} />
-            </div>
           </ul>
         </Nav>
 
@@ -408,7 +416,7 @@ export default function Header({ logged, onLogged }) {
         </Register>
 
         {/* 미디어 넷바, 어사이드창으로 띄울 것*/}
-        <MediaNav onClick={onMedia} mediaShow={mediaShow}>
+        <MediaNavBlock onClick={onMedia} mediaShow={mediaShow}>
           <GiHamburgerMenu size={24} />
           <ul>
             {logged ? (
@@ -460,7 +468,7 @@ export default function Header({ logged, onLogged }) {
               </>
             )}
           </ul>
-        </MediaNav>
+        </MediaNavBlock>
       </HeaderBlock>
     </>
   );

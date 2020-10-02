@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
+import Footer from "../components/Layouts/Footer";
 import Header from "../components/Layouts/Header";
 import "../styles/globals.css";
 
@@ -32,6 +33,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+      <Header logged={logged} onLogged={onLogged} />
       <Component
         {...pageProps}
         logged={logged}
@@ -40,7 +42,7 @@ function MyApp({ Component, pageProps }) {
         onJoinEnter={onJoinEnter}
         Nadoin={Nadoin}
       />
-      <Header logged={logged} onLogged={onLogged} />
+      <Footer />
     </>
   );
 }
